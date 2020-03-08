@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>Assignment 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Always give your HTML file an appropriate title -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <a href="#content" class="skip">Skip to content</a>
+    <!-- Mounting element for the Vue instance later created with new Vue -->
+    <div id="app" :class="appClasses">
+        <a href="/madlibs" class="reset">Madlibs</a>
+        <a href="/tic-tac-toe" class="reset">Tic Tac Toe</a>
+        <app-title></app-title>
+        <search-bar></search-bar>
+        <br>
+        <tweet-input></tweet-input>
+        <ul>
+            <li v-for="tweet in dispTweets">
+            <tweet 
+            v-if = "ready"
+            v-bind:key="tweet.id" 
+            v-bind:id="tweet.id"
+            v-bind:username = "tweet.user.name"
+            v-bind:profilepicture = "tweet.user.profile_image_url_https"
+            v-bind:screenname = "tweet.user.screen_name"
+            v-bind:date = "tweet.created_at"
+            v-bind:text = "tweet.text"
+            ></tweet>
+            </li>
+            <!-- <tweet v-for="(tweet, index) in tweets" v-bind:key="tweet.id" v-bind:username = "tweet.user.name"></tweet> -->
+        </ul>
+        <!-- <tweets></tweets> -->
+    </div>
+            
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- Include Vue from a CDN -->
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- the following script requires Vue to be imported so comes after -->
+    <script src="assignment3.js"></script>
+</body>
+</html>
